@@ -3,28 +3,56 @@
 
 
 from typing import List
-
+import math
 
 def convert_to_absolute() -> float:
-    return 0.0
+    return math.fabs(float(input("Entrez un nombre:")))
 
 
 def use_prefixes() -> List[str]:
-    prefixes, suffixes = 'JKLMNOP', 'ack'
+    prefixes, suffixes = 'JKLMNOPQ', 'ack'
+    combination = []
 
-    return [""]
+    for prefixe in prefixes:
+        combination.append(f"{prefixe}{suffixes}")
+
+    return combination
 
 
 def prime_integer_summation() -> int:
-    return 0
+    prime_integer = [2]
+    evaluated_int = 3
+
+    while len(prime_integer) < 100:
+        is_prime = True
+
+        for prime in prime_integer:
+            if evaluated_int % prime == 0:
+                is_prime = False
+                break
+
+        if is_prime:
+            prime_integer.append(evaluated_int)
+        evaluated_int += 2
+
+    return sum(prime_integer)
 
 
 def factorial(number: int) -> int:
-    return 0
+    if number == 1:
+        facto = 1
+    else:
+        facto = number * factorial(number - 1)
+
+    return facto
 
 
 def use_continue() -> None:
-    pass
+    for i in range(1, 10):
+        if i == 5:
+            continue
+        else:
+            print(i)
 
 
 def main() -> None:
